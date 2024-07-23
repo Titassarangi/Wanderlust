@@ -32,15 +32,12 @@ router.get("/:id", wrapAsync(async (req, res, next) => {
     let { id } = req.params;
     const listing = await Listing.findById(id).populate("reviews");
     if (!listing) {
-    
-      req.flash("error", "Listing you requested for does not exist ");
-    //   req.flash("Does not exist from 36th line");
-     res.redirect("/listings");
-     
+        req.flash("error", "Listing you requested for does not exist ");
+        res.redirect("/listings");
+    } else {
+        res.render("listings/show", { listing });
     }
-    //res.render("listings/show.ejs", { listing });
-  }));
-
+}));
 
 // Render form to edit a listing
 router.get("/:id/edit", wrapAsync(async (req, res) => {
@@ -48,12 +45,12 @@ router.get("/:id/edit", wrapAsync(async (req, res) => {
     const listing = await Listing.findById(id);
     if (!listing) {
         req.flash("error", "Listing you requested for does not exist ");
-
-        // req.flash("Does not exist from 49th line");
         res.redirect("/listings");
+    } else {
+        res.render("listings/edit", { listing });
     }
-    //res.render("listings/edit", { listing });
 }));
+
 // Create a new listing
 router.post("/", validateListing, wrapAsync(async (req, res, next) => {
     const newListing = new Listing(req.body.listing);
@@ -62,7 +59,7 @@ router.post("/", validateListing, wrapAsync(async (req, res, next) => {
     res.redirect("/listings");
 }));
 
-
+// Update a listing
 router.put("/:id", validateListing, wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
@@ -73,8 +70,7 @@ router.put("/:id", validateListing, wrapAsync(async (req, res) => {
 // Delete a listing
 router.delete("/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const deletedListing = await Listing.findOneAndDelete({ _id: id });
-    console.log(deletedListing);
+    await Listing.findOneAndDelete({ _id: id });
     req.flash("success", "Listing deleted");
     res.redirect("/listings");
 }));
