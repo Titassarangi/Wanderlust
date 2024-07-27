@@ -1,1 +1,1 @@
-Clone of Airbnb
+Wanderlust is a web application inspired by Airbnb. It provides a platform for users to list, discover, and book accommodations worldwide. The project uses Express.js for the backend, EJS for templating, and MongoDB for data storage. It includes user authentication, session management, and flash messages for notifications. The app also supports user registration, login, and logout functionalities, along with dynamic routing and middleware for handling authentication and redirection.
