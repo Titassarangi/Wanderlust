@@ -8,11 +8,13 @@ const listingSchema = new Schema({
     },
     description: String,
     image: {
-        type: String,
-        default: "https://unsplash.com/photos/a-tall-building-with-a-tower-on-top-of-it-YC0peYJXjJk",
-        set : (v) => v === "" 
-        ? "https://unsplash.com/photos/a-tall-building-with-a-tower-on-top-of-it-YC0peYJXjJk" 
-        : v,
+        // type: String,
+        // default: "https://unsplash.com/photos/a-tall-building-with-a-tower-on-top-of-it-YC0peYJXjJk",
+        // set : (v) => v === "" 
+        // ? "https://unsplash.com/photos/a-tall-building-with-a-tower-on-top-of-it-YC0peYJXjJk" 
+        // : v,
+        url:String,
+        filename:String,
     },
     price: Number,
     location: String,
