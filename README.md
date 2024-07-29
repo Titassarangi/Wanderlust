@@ -1,1 +1,8 @@
-Wanderlust is a web application inspired by Airbnb that allows users to list and review various places. Built with Node.js, Express.js, and MongoDB, it features user authentication, CRUD operations for listings and reviews, validation, error handling, and flash messages for user feedback. Users can register, log in, create, and review listings, providing a seamless experience for sharing and discovering new places.
+Wanderlust is an innovative travel planning application designed to enhance your journey experience. Utilizing the MVC (Model-View-Controller) architectural pattern, Wanderlust offers a streamlined and organized approach to travel management.
+
+Key Features:
+
+Itinerary Management: Easily create, update, and organize your travel plans.
+Destination Recommendations: Receive personalized suggestions to discover exciting new places.
+Mapping Integration: Seamlessly view and navigate your routes with built-in mapping services.
+Built with a modern tech stack, Wanderlust combines intuitive design with powerful functionality to make travel planning efficient and enjoyable. Whether you’re planning a quick getaway or a grand adventure, Wanderlust helps you keep everything on track.
