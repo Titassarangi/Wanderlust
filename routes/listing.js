@@ -18,7 +18,7 @@ router.route("/")
 
 router.route("/:id")
     .get(wrapAsync(listingController.showListing)) // Allow viewing a specific listing without logging in
-    .put(isLoggedIn, isOwner, validateListing, wrapAsync(listingController.updateListing))
+    .put(isLoggedIn, isOwner, upload.single("listing[image]"), validateListing, wrapAsync(listingController.updateListing))
     .delete(isLoggedIn, isOwner, wrapAsync(listingController.destroyListing));
 
 // Render form to edit a listing
